@@ -19,3 +19,13 @@ services:
       - "3301:3301"
     volumes:
       - ./app/data:/var/lib/tarantool
+  admin:
+    restart: always
+    build: ./admin
+    ports:
+      - "8000:80"
+    volumes:
+      - ./admin/php:/var/www/html/php
+      - ./admin/public/admin/js:/var/www/html/admin/js
+      - ./admin/public/admin/index.php:/var/www/html/admin/index.php
+      - ./admin/public/admin/style.css:/var/www/html/admin/style.css

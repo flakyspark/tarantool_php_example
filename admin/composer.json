@@ -1,0 +1,17 @@
+{
+    "name": "basis-company/tarantool-admin",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4",
+        "basis-company/framework" : "^3.10.15"
+    },
+    "authors": [{
+        "name": "Dmitry Krokhin",
+        "email": "nekufa@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "": "php"
+        }
+    }
+}

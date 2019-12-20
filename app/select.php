@@ -12,14 +12,11 @@ echo 'Processing...' . PHP_EOL;
 
 $time_start = microtime(true);
 
-for ($ruleId=1 ; $ruleId < 50; $ruleId ++) {
-    for ($triggerId=1 ; $triggerId < 50; $triggerId ++) {
-        for ($answerSetId=1 ; $answerSetId < 50; $answerSetId ++) {
-            $select = "SELECT * FROM snapshot_verification_result  WHERE rule_id = ? AND trigger_id = ? AND answer_set_id = ? AND answer_source_type_id = ?";
-            $result = $client->executeQuery($select, $ruleId, $triggerId, $answerSetId, mt_rand(1, 50));
-            $count++;
-        }
-    }
+for ($i=1 ; $i < 100000; $i ++) {
+    $select = "SELECT * FROM snapshot_verification_result  WHERE rule_id = ? AND trigger_id = ? AND answer_set_id = ? AND answer_source_type_id = ?";
+    $result = $client->executeQuery($select, mt_rand(1, 50), mt_rand(1, 50), mt_rand(1, 50), mt_rand(1, 50));
+    $result = $result->getData();
+    $count++;
 }
 
 $time_end = microtime(true);
